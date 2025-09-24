@@ -1,4 +1,4 @@
-import HomePageClient from '../../components/HomePageClient';
+import HomePageClient from '../../components/pages/HomePageClient';
 
 import { getAllImage } from '@/services/api';
 

@@ -12,6 +12,9 @@ const archivoSans = Archivo({
 	variable: '--font-archivo-sans',
 	subsets: ['latin'],
 });
+const archivoBlackSans = Archivo({
+	variable: '--font-archivo-black',
+});
 
 export const metadata: Metadata = {
 	title: 'Imagining Life',
@@ -25,7 +28,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${montserratSans.variable} ${archivoSans.variable} antialiased`}>{children}</body>
+			<body className={`${montserratSans.variable} ${archivoSans.variable} ${archivoBlackSans.variable} antialiased`}>{children}</body>
 		</html>
 	);
 }
