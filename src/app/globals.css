@@ -13,11 +13,15 @@
 @custom-variant xxs (@media (min-width: 360px));
 
 :root {
-	--background: #ffffff;
-	--foreground: #171717;
+	--background: #faf7f5;
+	--foreground: #333333;
+	--primary: #e63946;
+	--gray: #e5e5e5;
 }
 
 @theme inline {
+	--color-primary: var(--primary);
+	--color-gray: var(--gray);
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--font-montserrat: var(--font-montserrat-sans);
@@ -38,6 +42,6 @@ body {
 	font-family: var(--font-montserrat);
 }
 
-input{
-	outline: none
+input {
+	outline: none;
 }

@@ -23,12 +23,12 @@ export default function AboutPageClient() {
 	return (
 		<div>
 			<Title>About us</Title>
-			<div className=' grid grid-cols-1 xl:grid-cols-2 items-center'>
+			<div className='grid grid-cols-1 items-center xl:grid-cols-2'>
 				<div className='flex flex-col gap-4'>
 					{ABOUT_DATA.map((item, i) => {
 						const isOpen = openSet.has(i);
 						return (
-							<div key={i} className='mb-1 flex flex-col gap-2 border-b border-gray-400/50'>
+							<div key={i} className='border-gray mb-1 flex flex-col gap-2 border-b'>
 								<div className='flex justify-between'>
 									<button
 										onClick={() => toggle(i)}
@@ -57,7 +57,7 @@ export default function AboutPageClient() {
 							</div>
 						);
 					})}
-					<div className=' flex flex-col rounded bg-slate-200 p-2'>
+					<div className='flex flex-col rounded bg-slate-200 p-2'>
 						<Title heading='lg'>Contact Us</Title>
 						<ul>
 							<li>tel: +1 (555) 013-2468</li>

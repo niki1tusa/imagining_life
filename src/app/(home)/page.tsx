@@ -1,8 +1,17 @@
-'use server';
-
 import HomePageClient from '@/components/pages/HomePageClient';
 
-export default async function Home() {
+export type TPhoto = {
+    albumId: number,
+    id: number,
+    title: string,
+    url: string,
+    thumbnailUrl: string
+};
 
-	return <HomePageClient photos={[]} />;
+export default async function Home() {
+	const photos = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=10')
+		.then(response => response.json())
+		
+
+	return <HomePageClient photos={photos ?? []} />;
 }

@@ -12,8 +12,8 @@ export default function NotFound() {
 				className='mb-6'
 				priority
 			/>
-			<h1 className='mb-2 text-3xl font-bold text-gray-800'>Page Not Found</h1>
-			<p className='mb-6 text-gray-600'>
+			<h1 className='text-gray mb-2 text-3xl font-bold'>Page Not Found</h1>
+			<p className='text-gray mb-6'>
 				The page you are looking for doesn’t exist or has been moved.
 			</p>
 			<Link
