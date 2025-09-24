@@ -2,30 +2,31 @@
 
 import Image from 'next/image';
 
+
 import Header from '../Header';
 
-interface Props {
-	albumId: number;
-	id: number;
-	title: string;
-	url: string;
-	thumbnailUrl: string;
-}
 // TODO: почему не вывыдится photo
 // возможно найти замену API
-// TODO: содеожание: лента, поиск по ленте, фильтрация, кнопка-ссылка на share page добавления своей фотографии
-export default function HomePageClient({ photos }: { photos: Props[] }) {
+
+export default function HomePageClient({ photos }: { photos: TPicsumPhoto[] }) {
 	return (
 		<div className='grid grid-cols-[70%_30%]'>
 			<div className='flex flex-col gap-2'>
 				<Header />
 				{/* lenta */}
-				<ul className='gap-2 rounded border p-2'>
+				<ul className='flex flex-col items-center gap-2 overflow-y-auto rounded border p-2 2xl:h-[1200px]'>
 					{photos.map(photo => (
 						<div key={photo.id}>
-							<span>{photo.title}</span>
+							<span>{photo.author}</span>
 							<span>url: {photo.url}</span>
-							{photo.url && <Image width={100} height={100} alt='photo' src={photo.url} />}
+							{photo.url && (
+								<Image
+									width={photo.width}
+									height={photo.height}
+									alt='photo'
+									src={photo.download_url}
+								/>
+							)}
 						</div>
 					))}
 				</ul>

@@ -1,8 +1,8 @@
-import HomePageClient from '../../components/pages/HomePageClient';
+'use server';
 
-import { getAllImage } from '@/services/api';
+import HomePageClient from '@/components/pages/HomePageClient';
 
 export default async function Home() {
-	const photos = await getAllImage();
-	return <HomePageClient photos={photos} />;
+
+	return <HomePageClient photos={[]} />;
 }
