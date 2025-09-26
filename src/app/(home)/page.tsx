@@ -1,16 +1,31 @@
-import HomeClientWrapper from '@/components/pages/home/HomeClientWrapper';
 import HomePageClient from '@/components/pages/home/HomePageClient';
 
-export type TPhoto = {
-	id: string;
-	author: string;
-	width: number;
-	height: number;
-	url: string;
-	download_url: string;
-};
+import { TPhoto } from '@/types/global.types';
 
-export default async function Home() {
+// SSR
+async function getPhotos(): Promise<TPhoto[]> {
+	const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/photos`, {
+		cache: 'no-store',
+	});
 
-	return <HomeClientWrapper/>;
+	if (!res.ok) {
+		console.error('API error:', res.status, res.statusText);
+		return [];
+	}
+
+	return res.json();
+}
+
+export default async function Page() {
+	const photos = await getPhotos();
+	console.log(photos);
+	if (!photos.length) {
+		return (
+			<div className='flex h-full items-center justify-center text-red-500'>
+				Не удалось загрузить фото
+			</div>
+		);
+	}
+
+	return <HomePageClient photos={photos} />;
 }

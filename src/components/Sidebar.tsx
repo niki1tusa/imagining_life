@@ -7,8 +7,8 @@ import { NAVBAR_DATA } from '@/data/navbar.data';
 
 export default function Sidebar() {
 	return (
-		<nav className='border-gray flex h-[100dvh] flex-col items-center gap-10 border-r bg-white 2xl:text-xl'>
-			<Title className='text-primary pt-5'>Imagining Life</Title>
+		<nav className=' flex h-[100dvh] flex-col pr-10 items-center gap-10  bg-white 2xl:text-xl'>
+			<Title className='text-primary pt-5 '>Imagining Life</Title>
 			<div className='border-gray h-1 w-[45%] border-b' />
 			<ul className='flex flex-col gap-4'>
 				{NAVBAR_DATA.map(navItem => (

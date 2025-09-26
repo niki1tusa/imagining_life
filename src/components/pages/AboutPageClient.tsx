@@ -21,8 +21,8 @@ export default function AboutPageClient() {
 		});
 	};
 	return (
-		<div>
-			<Title>About us</Title>
+		<div className='px-5 pt-5'>
+			<Title className='text-primary'>About us</Title>
 			<div className='grid grid-cols-1 items-center xl:grid-cols-2'>
 				<div className='flex flex-col gap-4'>
 					{ABOUT_DATA.map((item, i) => {
