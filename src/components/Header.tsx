@@ -1,9 +1,13 @@
-import { FunnelPlus, RotateCcw, Share } from 'lucide-react';
+'use client'
+import { FunnelPlus, RotateCcw, Upload } from 'lucide-react';
 import React from 'react';
+
+import { useModalStore } from '@/store/modal.store';
 
 import Field from './ui/Field';
 
 export default function Header() {
+	const { open } = useModalStore();
 	return (
 		<div className='flex flex-col gap-3'>
 			<Field />
@@ -12,10 +16,15 @@ export default function Header() {
 					<FunnelPlus size={20} /> Filters
 				</button>
 				<button className='flex gap-2 rounded bg-white px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'>
-					<RotateCcw size={20} />
+					<RotateCcw size={20} className='hover:animate-spin' />
 				</button>
-				<button className='flex items-center gap-2 rounded bg-white px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'>
-					<Share size={20} /> Upload
+				<button
+					onClick={() =>{
+						console.log('hello')
+						open('uploadPhoto')}}
+					className='flex items-center gap-2 rounded bg-white px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
+				>
+					<Upload size={20} /> Upload
 				</button>
 			</div>
 		</div>

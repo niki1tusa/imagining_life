@@ -3,6 +3,8 @@ import { Archivo, Archivo_Black, Montserrat } from 'next/font/google';
 
 import { SITE_NAME } from '@/constants/seo.constants';
 
+import MainProvider from '@/provider/Provider';
+
 import './globals.css';
 
 const montserratSans = Montserrat({
@@ -14,8 +16,9 @@ const archivoSans = Archivo({
 	variable: '--font-archivo-sans',
 	subsets: ['latin'],
 });
-const archivoBlackSans = Archivo({
-	variable: '--font-archivo-black',
+const archivoBlackSans = Archivo_Black({
+	weight: ['400'],
+	variable: '--font-archivo-black-sans',
 });
 
 export const metadata: Metadata = {
@@ -37,7 +40,7 @@ export default function RootLayout({
 			<body
 				className={`${montserratSans.variable} ${archivoSans.variable} ${archivoBlackSans.variable} antialiased`}
 			>
-				{children}
+				<MainProvider>{children}</MainProvider>
 			</body>
 		</html>
 	);

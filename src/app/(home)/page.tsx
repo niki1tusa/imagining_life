@@ -1,17 +1,16 @@
-import HomePageClient from '@/components/pages/HomePageClient';
+import HomeClientWrapper from '@/components/pages/home/HomeClientWrapper';
+import HomePageClient from '@/components/pages/home/HomePageClient';
 
 export type TPhoto = {
-    albumId: number,
-    id: number,
-    title: string,
-    url: string,
-    thumbnailUrl: string
+	id: string;
+	author: string;
+	width: number;
+	height: number;
+	url: string;
+	download_url: string;
 };
 
 export default async function Home() {
-	const photos = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=10')
-		.then(response => response.json())
-		
 
-	return <HomePageClient photos={photos ?? []} />;
+	return <HomeClientWrapper/>;
 }
