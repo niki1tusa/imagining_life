@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 const ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 export async function GET() {
-	const res = await fetch(`https://api.unsplash.com/photos/random&client_id=${ACCESS_KEY}`, {
+	const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${ACCESS_KEY}`, {
 		cache: 'no-store',
 	});
 	if (!res.ok) {

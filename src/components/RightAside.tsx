@@ -1,15 +1,28 @@
-import { addDays } from 'date-fns';
+'use client';
+
+import { motion } from 'framer-motion';
 
 import PhotoCard from './pages/home/PhotoCard';
+import Title from './ui/Title';
 import { TPhoto } from '@/types/global.types';
 
-const DATE = new Date('2025-01-01');
 export default function RightAside({ photo }: { photo: TPhoto }) {
-	const randomDateUpload = addDays(DATE, Math.floor(Math.random() * 275));
 	return (
-		<aside className='rounded border bg-white p-2 shadow shadow-neutral-400'>
-			<h2 className='text-primary text-lg font-bold'>Photo of the day</h2>
-			<PhotoCard randomDateUpload={randomDateUpload} photo={photo} />
-		</aside>
+		<motion.aside
+			layout='position'
+			initial={{ opacity: 0, x: 100 }}
+			animate={{ opacity: 1, x: 0 }}
+			transition={{
+				type: 'spring',
+				stiffness: 80,
+				damping: 15,
+			}}
+			className='px-5 pt-5'
+		>
+			<Title heading='lg' className='text-primary mb-3 text-lg font-bold'>
+				Photo of the day
+			</Title>
+			<PhotoCard photo={photo} />
+		</motion.aside>
 	);
 }

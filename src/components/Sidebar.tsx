@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { LogOut } from 'lucide-react';
 import Link from 'next/link';
 
@@ -7,8 +10,18 @@ import { NAVBAR_DATA } from '@/data/navbar.data';
 
 export default function Sidebar() {
 	return (
-		<nav className=' flex h-[100dvh] flex-col pr-10 items-center gap-10  bg-white 2xl:text-xl'>
-			<Title className='text-primary pt-5 '>Imagining Life</Title>
+		<motion.nav
+			layout='position'
+			initial={{ opacity: 0, x: -100 }}
+			animate={{ opacity: 1, x: 0 }}
+			transition={{
+				type: 'spring',
+				stiffness: 80,
+				damping: 15,
+			}}
+			className='flex h-[100dvh] flex-col items-center gap-10 bg-white pr-10 2xl:text-xl'
+		>
+			<Title className='text-primary pt-5'>Imagining Life</Title>
 			<div className='border-gray h-1 w-[45%] border-b' />
 			<ul className='flex flex-col gap-4'>
 				{NAVBAR_DATA.map(navItem => (
@@ -26,6 +39,6 @@ export default function Sidebar() {
 			<button type='button' className='flex items-center gap-1'>
 				<LogOut size={22} /> <span className='mb-1'>Logout</span>
 			</button>
-		</nav>
+		</motion.nav>
 	);
 }

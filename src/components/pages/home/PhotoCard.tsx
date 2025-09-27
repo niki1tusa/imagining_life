@@ -1,25 +1,20 @@
 'use client';
 
 import clsx from 'clsx';
-import { addDays, format } from 'date-fns';
+import { format } from 'date-fns';
 import { ThumbsUp } from 'lucide-react';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
+import { AnimateIcon } from '@/components/animate-ui/icons/icon';
+import { ThumbsUpIcon } from '@/components/animate-ui/icons/thumbs-up';
+
 import { TPhoto } from '@/types/global.types';
 
-export default function PhotoCard({
-	photo,
-	randomDateUpload,
-}: {
-	photo: TPhoto;
-	randomDateUpload: Date;
-}) {
+export default function PhotoCard({ photo }: { photo: TPhoto }) {
 	const [isLike, setIsLike] = useState(false);
 	return (
-		<li
-			className='flex w-full max-w-lg flex-col gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3 shadow-sm transition-all hover:opacity-95 hover:shadow-lg'
-		>
+		<li className='flex w-full max-w-lg flex-col gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3 shadow-sm transition-all hover:opacity-95 hover:shadow-lg'>
 			<div className='flex items-center justify-between gap-2 pb-2 text-sm font-medium text-gray-700'>
 				<div className='flex items-center gap-2'>
 					<Image
@@ -31,9 +26,7 @@ export default function PhotoCard({
 					/>
 					{photo?.user?.name && <span>{photo.user.username || photo.user.name}</span>}
 				</div>
-				<time dateTime={randomDateUpload.toISOString()}>
-					{format(randomDateUpload, 'LLL dd, yyyy')}
-				</time>
+				<time dateTime={photo.created_at}>{format(photo.created_at, 'LLL dd, yyyy')}</time>
 			</div>
 			<Image
 				alt={photo.description || 'Photo'}
@@ -43,10 +36,12 @@ export default function PhotoCard({
 				className='h-64 w-full rounded-lg object-cover shadow-md'
 			/>
 			{photo.description && <p className='mt-2 text-sm text-gray-600'>{photo.description}</p>}
-			<div className='flex gap-2'>
-				<button type='button' onClick={() => setIsLike(!isLike)}>
-					<ThumbsUp className={clsx(isLike && 'text-primary')} />
-				</button>
+			<div className='flex items-center gap-1'>
+				<AnimateIcon animateOnHover>
+					<button type='button' onClick={() => setIsLike(!isLike)}>
+						<ThumbsUpIcon size={22} color={isLike ? 'text-primary' : ''} />
+					</button>
+				</AnimateIcon>
 				{photo.likes}
 			</div>
 		</li>

@@ -15,17 +15,14 @@ async function getPhotos(): Promise<TPhoto[]> {
 
 	return res.json();
 }
-
 export default async function Page() {
 	const photos = await getPhotos();
-	console.log(photos);
-	if (!photos.length) {
-		return (
-			<div className='flex h-full items-center justify-center text-red-500'>
-				Не удалось загрузить фото
-			</div>
-		);
-	}
 
-	return <HomePageClient photos={photos} />;
+	return photos.length ? (
+		<HomePageClient photos={photos} />
+	) : (
+		<div className='flex h-full items-center justify-center text-red-500'>
+			Не удалось загрузить фото
+		</div>
+	);
 }
