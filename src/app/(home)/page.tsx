@@ -17,7 +17,7 @@ async function getPhotos(): Promise<TPhoto[]> {
 }
 export default async function Page() {
 	const photos = await getPhotos();
-
+	console.log(photos);
 	return photos.length ? (
 		<HomePageClient photos={photos} />
 	) : (

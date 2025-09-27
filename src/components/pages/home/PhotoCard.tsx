@@ -2,17 +2,18 @@
 
 import clsx from 'clsx';
 import { format } from 'date-fns';
-import { ThumbsUp } from 'lucide-react';
 import Image from 'next/image';
-import React, { useState } from 'react';
 
+import { Heart } from '@/components/animate-ui/icons/heart';
 import { AnimateIcon } from '@/components/animate-ui/icons/icon';
-import { ThumbsUpIcon } from '@/components/animate-ui/icons/thumbs-up';
+
+import { useLikePhotoStore } from '@/store/like-photo.store';
 
 import { TPhoto } from '@/types/global.types';
 
 export default function PhotoCard({ photo }: { photo: TPhoto }) {
-	const [isLike, setIsLike] = useState(false);
+	const { toggleLike, isLiked } = useLikePhotoStore();
+	const liked = isLiked(photo.id);
 	return (
 		<li className='flex w-full max-w-lg flex-col gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3 shadow-sm transition-all hover:opacity-95 hover:shadow-lg'>
 			<div className='flex items-center justify-between gap-2 pb-2 text-sm font-medium text-gray-700'>
@@ -38,11 +39,11 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 			{photo.description && <p className='mt-2 text-sm text-gray-600'>{photo.description}</p>}
 			<div className='flex items-center gap-1'>
 				<AnimateIcon animateOnHover>
-					<button type='button' onClick={() => setIsLike(!isLike)}>
-						<ThumbsUpIcon size={22} color={isLike ? 'text-primary' : ''} />
+					<button type='button' onClick={() => toggleLike(photo)}>
+						<Heart size={22} className={clsx(liked && 'text-primary')} fill={liked? 'red': 'transparent'}/>
 					</button>
 				</AnimateIcon>
-				{photo.likes}
+				{liked ? photo.likes + 1 : photo.likes}
 			</div>
 		</li>
 	);
