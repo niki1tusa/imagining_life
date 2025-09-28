@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';   
+export const revalidate = false;
 import type { Metadata } from 'next';
 
 import AboutPageClient from '@/components/pages/AboutPageClient';
@@ -9,5 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+	// из-за анимированного аккордиона перенос в client
 	return <AboutPageClient />;
 }
