@@ -5,12 +5,13 @@ import React, { useState } from 'react';
 
 import { useModalStore } from '@/store/modal.store';
 
+import { useClickOutside } from '@/hooks/useClickOutside';
+
 import { AnimateIcon } from './animate-ui/icons/icon';
 import { RotateCcwIcon } from './animate-ui/icons/rotate-ccw';
 import { SlidersHorizontal } from './animate-ui/icons/sliders-horizontal';
 import { Upload } from './animate-ui/icons/upload';
 import Field from './ui/Field';
-import { useClickOutside } from '@/hooks/useClickOutside';
 
 export default function Header({
 	query,
@@ -32,13 +33,18 @@ export default function Header({
 	};
 	return (
 		<div className='border-gray flex flex-col gap-3 border-b px-5 pt-5 pb-3'>
-			<Field query={query} setQuery={setQuery} placeholder='Search photo by author...' isSearch={true}/>
+			<Field
+				query={query}
+				setQuery={setQuery}
+				placeholder='Search photo by author...'
+				isSearch={true}
+			/>
 			<div className='flex items-center gap-3 text-sm'>
 				<AnimateIcon animateOnHover>
 					<button
 						type='button'
 						onClick={() => setIsOpenMenuFilters(!isOpenMenuFilters)}
-						className='itens-center relative flex gap-2 rounded bg-white px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
+						className='itens-center bg-light-white relative flex gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
 					>
 						<SlidersHorizontal size={20} />
 						{orderBy ? orderBy : 'Filters'}
@@ -53,7 +59,7 @@ export default function Header({
 									stiffness: 80,
 									damping: 15,
 								}}
-								className='absolute top-[105%] left-0 z-20 flex w-[100px] flex-col items-start rounded-sm bg-white shadow-sm shadow-neutral-400'
+								className='bg-light-white absolute top-[105%] left-0 z-20 flex w-[100px] flex-col items-start rounded-sm shadow-sm shadow-neutral-400'
 							>
 								<li
 									onClick={() => setOrderBy('Date asc')}
@@ -75,7 +81,7 @@ export default function Header({
 					<button
 						onClick={handleReset}
 						title='Reset filters'
-						className='flex gap-2 rounded bg-white px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
+						className='bg-light-white flex gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
 					>
 						<RotateCcwIcon size={20} />
 					</button>
@@ -85,7 +91,7 @@ export default function Header({
 						onClick={() => {
 							open('uploadPhoto');
 						}}
-						className='flex items-center gap-2 rounded bg-white px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
+						className='bg-light-white flex items-center gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
 					>
 						<Upload size={20} /> Upload
 					</button>

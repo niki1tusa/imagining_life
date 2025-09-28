@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import { motion, isMotionComponent, type HTMLMotionProps } from 'motion/react';
-import { cn } from '@/lib/utils';
+import clsx from 'clsx';
+
 
 type AnyProps = Record<string, unknown>;
 
@@ -42,7 +43,7 @@ function mergeProps<T extends HTMLElement>(
   const merged: AnyProps = { ...childProps, ...slotProps };
 
   if (childProps.className || slotProps.className) {
-    merged.className = cn(
+    merged.className = clsx(
       childProps.className as string,
       slotProps.className as string,
     );

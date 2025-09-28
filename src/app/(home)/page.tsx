@@ -1,6 +1,6 @@
 import HomePageClient from '@/components/pages/home/HomePageClient';
 
-import { TPhoto } from '@/types/global.types';
+import { TPhoto } from '@/types/photo.types';
 
 // SSR
 async function getPhotos(): Promise<TPhoto[]> {
@@ -17,7 +17,6 @@ async function getPhotos(): Promise<TPhoto[]> {
 }
 export default async function Page() {
 	const photos = await getPhotos();
-	console.log(photos);
 	return photos.length ? (
 		<HomePageClient photos={photos} />
 	) : (

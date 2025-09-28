@@ -22,7 +22,7 @@ export default function AboutPageClient() {
 	};
 	return (
 		<div className='px-5 pt-5'>
-			<Title className='text-primary'>About us</Title>
+			<Title heading='2xl' className='text-primary'>About us</Title>
 			<div className='grid grid-cols-1 items-center xl:grid-cols-2'>
 				<div className='flex flex-col gap-4'>
 					{ABOUT_DATA.map((item, i) => {
@@ -57,7 +57,7 @@ export default function AboutPageClient() {
 							</div>
 						);
 					})}
-					<div className='flex flex-col rounded bg-slate-200 p-2'>
+					<div className='flex flex-col rounded text-black bg-slate-200 p-2'>
 						<Title heading='lg'>Contact Us</Title>
 						<ul>
 							<li>tel: +1 (555) 013-2468</li>

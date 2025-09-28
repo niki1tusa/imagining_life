@@ -9,13 +9,13 @@ import { AnimateIcon } from '@/components/animate-ui/icons/icon';
 
 import { useLikePhotoStore } from '@/store/like-photo.store';
 
-import { TPhoto } from '@/types/global.types';
+import { TPhoto } from '@/types/photo.types';
 
 export default function PhotoCard({ photo }: { photo: TPhoto }) {
 	const { toggleLike, isLiked } = useLikePhotoStore();
 	const liked = isLiked(photo.id);
 	return (
-		<li className='flex w-full max-w-lg flex-col gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3 shadow-sm transition-all hover:opacity-95 hover:shadow-lg'>
+		<li className='bg-light-white flex w-full max-w-lg flex-col gap-2 rounded-xl border border-gray-200 px-6 py-3 shadow-sm transition-all hover:opacity-95 hover:shadow-lg'>
 			<div className='flex items-center justify-between gap-2 pb-2 text-sm font-medium text-gray-700'>
 				<div className='flex items-center gap-2'>
 					<Image
@@ -40,7 +40,11 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 			<div className='flex items-center gap-1'>
 				<AnimateIcon animateOnHover>
 					<button type='button' onClick={() => toggleLike(photo)}>
-						<Heart size={22} className={clsx(liked && 'text-primary')} fill={liked? 'red': 'transparent'}/>
+						<Heart
+							size={22}
+							className={clsx(liked && 'text-primary')}
+							fill={liked ? 'red' : 'transparent'}
+						/>
 					</button>
 				</AnimateIcon>
 				{liked ? photo.likes + 1 : photo.likes}

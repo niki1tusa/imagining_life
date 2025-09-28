@@ -11,7 +11,7 @@ import {
   type HTMLMotionProps,
 } from 'motion/react';
 
-import { cn } from '@/lib/utils';
+import clsx from 'clsx';
 import { useIsInView } from '@/hooks/use-is-in-view';
 import { Slot, type WithAsChild } from '@/components/animate-ui/primitives/animate/slot';
 
@@ -523,7 +523,7 @@ function IconWrapper<T extends string>({
         >
           <IconComponent
             size={size}
-            className={cn(
+            className={clsx(
               className,
               ((animationProp ?? parentAnimation) === 'path' ||
                 (animationProp ?? parentAnimation) === 'path-loop') &&
@@ -555,7 +555,7 @@ function IconWrapper<T extends string>({
       >
         <IconComponent
           size={size}
-          className={cn(
+          className={clsx(
             className,
             (animationToUse === 'path' || animationToUse === 'path-loop') &&
               pathClassName,
@@ -590,7 +590,7 @@ function IconWrapper<T extends string>({
       >
         <IconComponent
           size={size}
-          className={cn(
+          className={clsx(
             className,
             (animationProp === 'path' || animationProp === 'path-loop') &&
               pathClassName,
@@ -604,7 +604,7 @@ function IconWrapper<T extends string>({
   return (
     <IconComponent
       size={size}
-      className={cn(
+      className={clsx(
         className,
         (animationProp === 'path' || animationProp === 'path-loop') &&
           pathClassName,

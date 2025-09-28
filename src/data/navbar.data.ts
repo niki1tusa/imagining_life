@@ -1,6 +1,6 @@
 import { House, Info, Share, UserRoundCog } from 'lucide-react';
 
-import { INavbarItem } from '@/types/global.types';
+import { INavbarItem } from '@/types/photo.types';
 
 export const NAVBAR_DATA: INavbarItem[] = [
 	{ id: 1, title: 'Home', link: '/', icon: House },

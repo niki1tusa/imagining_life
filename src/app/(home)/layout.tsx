@@ -1,7 +1,7 @@
 import RightAside from '@/components/RightAside';
 import Sidebar from '@/components/Sidebar';
 
-import { TPhoto } from '@/types/global.types';
+import { TPhoto } from '@/types/photo.types';
 
 async function getRandomPhoto(): Promise<TPhoto | null> {
 	try {
@@ -34,12 +34,12 @@ async function getPhotos(): Promise<TPhoto[]> {
 }
 export default async function Mainlayout({ children }: { children: React.ReactNode }) {
 	const photo = await getRandomPhoto();
-	const photos = await getPhotos()
+	const photos = await getPhotos();
 	return (
-		<div className='flex justify-center bg-white'>
+		<div className='bg-light-white flex justify-center'>
 			<Sidebar />
 			<main className='bg-background border-gray w-[700px] border-r border-l'>{children}</main>
-			{photo && <RightAside photo={photo} photos={photos}/>}
+			{photo && <RightAside photo={photo} photos={photos} />}
 		</div>
 	);
 }

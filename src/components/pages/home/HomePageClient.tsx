@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 
 import PhotoCard from './PhotoCard';
-import { TPhoto } from '@/types/global.types';
+import { TPhoto } from '@/types/photo.types';
 
 interface Props {
 	photos: TPhoto[];
@@ -40,7 +40,7 @@ export default function HomePageClient({ photos }: Props) {
 			{/* Лента */}
 			<motion.ul
 				layout='position'
-				initial={{ opacity: 0, y: 100 }}
+				initial={{ opacity: 0, y: 150 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{
 					type: 'spring',
