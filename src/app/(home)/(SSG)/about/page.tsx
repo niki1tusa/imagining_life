@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: '/about.png',
         width: 1200,
         height: 630,
-        alt: 'About us - команда сайта',
+        alt: 'About us',
       },
     ],
     locale: 'en_US',

@@ -7,6 +7,20 @@ import { SITE_NAME } from '@/constants/seo.constants';
 
 export const metadata: Metadata = {
 	title: `${SITE_NAME} | Upload`,
+	description: `Загрузжай свои фото на ${SITE_NAME}.`,
+
+	alternates: {
+		canonical: '/upload',
+	},
+
+	openGraph: {
+		title: `${SITE_NAME} | Profile`,
+		description: `Страница загрузки своих фото на ${SITE_NAME}.`,
+		url: '/upload',
+		siteName: SITE_NAME,
+		locale: 'en_US',
+		type: 'website',
+	},
 };
 
 export default function UploadPage() {

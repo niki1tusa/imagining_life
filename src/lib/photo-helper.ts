@@ -1,4 +1,3 @@
-// src/lib/photo-factory.ts
 import type { TPhoto } from '@/types/photo.types';
 
 function getImageDimensions(objectUrl: string) {
@@ -31,7 +30,7 @@ export async function createLocalTPhoto(file: File, description: string): Promis
     width,
     height,
     color: '#cccccc',
-    blur_hash: '',            // нет blurhash — оставляем пустым
+    blur_hash: '',           
     likes: 0,
     liked_by_user: false,
     description: description || null,

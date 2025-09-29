@@ -1,8 +1,34 @@
+import { Metadata } from 'next';
+
 import HomePageClient from '@/components/pages/home/HomePageClient';
+
+import { SITE_NAME } from '@/constants/seo.constants';
 
 import { TPhoto } from '@/types/photo.types';
 
-// SSR
+export const metadata: Metadata = {
+	title: `${SITE_NAME} | Home`,
+	description: `Просматривай и выкладывай фото на  ${SITE_NAME}, имаджинируй жизнь!`,
+	alternates: {
+		canonical: '/',
+	},
+	openGraph: {
+		title: `${SITE_NAME} | Home`,
+		description: `Просматривай и выкладывай фото на  ${SITE_NAME} `,
+		url: '/',
+		siteName: SITE_NAME,
+		images: [
+			{
+				url: '/home.png',
+				width: 1200,
+				height: 630,
+				alt: 'Home',
+			},
+		],
+		locale: 'en_US',
+		type: 'website',
+	},
+};
 async function getPhotos(): Promise<TPhoto[]> {
 	const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/photos`, {
 		cache: 'no-store',
