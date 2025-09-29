@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Archivo, Archivo_Black, Montserrat } from 'next/font/google';
 
-import { SITE_NAME } from '@/constants/seo.constants';
-
 import MainProvider from '@/providers/Provider';
+
+import { SITE_NAME } from '@/constants/seo.constants';
 
 import './globals.css';
 
@@ -22,12 +22,14 @@ const archivoBlackSans = Archivo_Black({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
 	title: SITE_NAME,
 	icons: {
 		icon: '/favicon/favicon.ico',
 		shortcut: '/favicon/favicon.ico',
 	},
-	description: 'A photo sharing platform where users can discover, upload, and interact with beautiful images from around the world.',
+	description:
+		'A photo sharing platform where users can discover, upload, and interact with beautiful images from around the world.',
 };
 
 export default function RootLayout({

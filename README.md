@@ -28,9 +28,6 @@
 - [State, Forms, Validation](#-state-forms-validation)
 - [Performance & SEO](#-performance--seo)
 - [Security](#-security)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [License](#license)
 - [Acknowledgements](#-acknowledgements)
 
 ---

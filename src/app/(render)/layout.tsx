@@ -1,51 +1,14 @@
 import RightAside from '@/components/RightAside';
 import Sidebar from '@/components/Sidebar';
 
-import { TPhoto } from '@/types/photo.types';
-
-async function getRandomPhoto(): Promise<TPhoto | null> {
-	try {
-		const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/photos/random`, {
-			cache: 'no-store',
-		});
-
-		if (!res.ok) {
-			console.error('API error:', res.status, res.statusText);
-			return null;
-		}
-
-		return res.json();
-	} catch (err) {
-		console.error('Fetch error:', err);
-		return null;
-	}
-}
-async function getPhotos(): Promise<TPhoto[]> {
-	const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/photos`, {
-		cache: 'no-store',
-	});
-
-	if (!res.ok) {
-		console.error('API error:', res.status, res.statusText);
-		return [];
-	}
-
-	return res.json();
-}
-export default async function Mainlayout({ children }: { children: React.ReactNode }) {
-	const photo = await getRandomPhoto();
-	const photos = await getPhotos();
-	return (
-		<div className='bg-light-white flex justify-center'>
-			<Sidebar />
-			<main 
-				className='bg-background border-gray w-[700px] border-r border-l'
-				role="main"
-				aria-label="Main content area"
-			>
-				{children}
-			</main>
-			{photo && <RightAside photo={photo} photos={photos} />}
-		</div>
-	);
+export default function Mainlayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className='bg-light-white flex justify-center'>
+      <Sidebar />
+      <main className='bg-background border-gray w-[700px] border-r border-l' role='main' aria-label='Main content area'>
+        {children}
+      </main>
+      <RightAside />
+    </div>
+  );
 }
