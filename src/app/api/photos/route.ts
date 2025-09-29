@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-
+export const revalidate = 300;  
 const ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 
 export async function GET() {

@@ -3,7 +3,7 @@ import { Archivo, Archivo_Black, Montserrat } from 'next/font/google';
 
 import { SITE_NAME } from '@/constants/seo.constants';
 
-import MainProvider from '@/provider/Provider';
+import MainProvider from '@/providers/Provider';
 
 import './globals.css';
 

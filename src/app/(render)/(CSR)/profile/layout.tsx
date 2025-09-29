@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-import ProfilePageClient from '@/components/pages/ProfilePageClient';
 
 import { SITE_NAME } from '@/constants/seo.constants';
+import ProfilePage from '@/app/(render)/(CSR)/profile/page';
 
 export const metadata: Metadata = {
 	title: `${SITE_NAME} | Profile`,
@@ -22,7 +22,6 @@ export const metadata: Metadata = {
 	},
 };
 
-// сделать гастройку темы
-export default function Page() {
-	return <ProfilePageClient />;
+export default function ProfileLayout() {
+	return <ProfilePage />;
 }

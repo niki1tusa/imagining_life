@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-import PhotoCard from './pages/home/PhotoCard';
 import Field from './ui/Field';
+import PhotoCard from './ui/PhotoCard';
 import Title from './ui/Title';
 import { TPhoto } from '@/types/photo.types';
 
@@ -33,7 +33,7 @@ export default function RightAside({ photo, photos }: { photo: TPhoto; photos: T
 				</Title>
 				<PhotoCard photo={largestTotalLikedPhoto} />
 			</div>
-			<div className='flex flex-col '>
+			<div className='flex flex-col'>
 				<span>Hey friend &#128075; Want the freshest updates from our community?</span>
 				<span className='mb-2'>Then share your mail</span>
 				<Field type='mail' placeholder='Enter mail...' />

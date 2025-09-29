@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
 
-import HomePageClient from '@/components/pages/home/HomePageClient';
+import HomePageClient from '@/components/pages/HomePageClient';
 
 import { SITE_NAME } from '@/constants/seo.constants';
 
 import { TPhoto } from '@/types/photo.types';
 
+export const revalidate = 300; // default revalidate
 export const metadata: Metadata = {
 	title: `${SITE_NAME} | Home`,
 	description: `Просматривай и выкладывай фото на  ${SITE_NAME}, имаджинируй жизнь!`,
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 };
 async function getPhotos(): Promise<TPhoto[]> {
 	const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/photos`, {
-		cache: 'no-store',
+		next: { tags: ['photos'], revalidate: 300 }, // тег для этого запроса
 	});
 
 	if (!res.ok) {

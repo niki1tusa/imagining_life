@@ -5,6 +5,8 @@ import Title from '@/components/ui/Title';
 
 import { SITE_NAME } from '@/constants/seo.constants';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
 	title: `${SITE_NAME} | Upload`,
 	description: `Загрузжай свои фото на ${SITE_NAME}.`,

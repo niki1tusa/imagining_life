@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
-import Accordion from '@/components/pages/Accordion';
+import Accordion from '@/components/Accordion';
 import Title from '@/components/ui/Title';
 
 import { SITE_NAME } from '@/constants/seo.constants';
 
 import { ABOUT_DATA } from '@/data/about.data';
 
+// ssg
 export const dynamic = 'force-static';
 export const revalidate = false;
 

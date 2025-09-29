@@ -3,11 +3,10 @@
 import { useLikePhotoStore } from '@/store/like-photo.store';
 import { useMyPhotoStore } from '@/store/my-photo.store';
 
-import Title from '../ui/Title';
+import PhotoCard from '../../../../components/ui/PhotoCard';
+import Title from '../../../../components/ui/Title';
 
-import PhotoCard from './home/PhotoCard';
-
-export default function ProfilePageClient() {
+export default function ProfilePage() {
 	const { likedPhotos } = useLikePhotoStore();
 	const { uploads } = useMyPhotoStore();
 	return (

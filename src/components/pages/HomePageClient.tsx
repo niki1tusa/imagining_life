@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 
 import Header from '@/components/Header';
 
-import PhotoCard from './PhotoCard';
+import PhotoCard from '../ui/PhotoCard';
+
 import { TPhoto } from '@/types/photo.types';
 
 interface Props {

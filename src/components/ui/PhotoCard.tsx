@@ -52,7 +52,7 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 						onClick={() => toggleLike(photo)}
 						aria-label={liked ? `Unlike photo by ${authorName}` : `Like photo by ${authorName}`}
 						aria-pressed={liked}
-						className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm p-1"
+						className=" rounded-sm p-1"
 					>
 						<Heart
 							size={22}
