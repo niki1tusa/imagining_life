@@ -32,21 +32,24 @@ export default function Header({
 		setOrderBy(null);
 	};
 	return (
-		<div className='border-gray flex flex-col gap-3 border-b px-5 pt-5 pb-3'>
+		<header className='border-gray flex flex-col gap-3 border-b px-5 pt-5 pb-3' role="banner">
 			<Field
 				query={query}
 				setQuery={setQuery}
 				placeholder='Search photo by author...'
 				isSearch={true}
 			/>
-			<div className='flex items-center gap-3 text-sm'>
+			<div className='flex items-center gap-3 text-sm' role="toolbar" aria-label="Photo filters and actions">
 				<AnimateIcon animateOnHover>
 					<button
 						type='button'
 						onClick={() => setIsOpenMenuFilters(!isOpenMenuFilters)}
-						className='itens-center bg-light-white relative flex gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
+						className='itens-center bg-light-white relative flex gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'
+						aria-expanded={isOpenMenuFilters}
+						aria-haspopup="menu"
+						aria-label={`Filter options${orderBy ? `, currently filtered by ${orderBy}` : ''}`}
 					>
-						<SlidersHorizontal size={20} />
+						<SlidersHorizontal size={20} aria-hidden="true" />
 						{orderBy ? orderBy : 'Filters'}
 						{isOpenMenuFilters && (
 							<motion.ul
@@ -60,18 +63,26 @@ export default function Header({
 									damping: 15,
 								}}
 								className='bg-light-white absolute top-[105%] left-0 z-20 flex w-[100px] flex-col items-start rounded-sm shadow-sm shadow-neutral-400'
+								role="menu"
+								aria-label="Filter options"
 							>
-								<li
-									onClick={() => setOrderBy('Date asc')}
-									className='w-full px-2 py-1 transition-all hover:bg-neutral-200/70'
-								>
-									Date asc
+								<li role="none">
+									<button
+										onClick={() => setOrderBy('Date asc')}
+										className='w-full px-2 py-1 text-left transition-all hover:bg-neutral-200/70 focus:outline-none focus:bg-neutral-200/70'
+										role="menuitem"
+									>
+										Date asc
+									</button>
 								</li>
-								<li
-									className='w-full px-2 py-1 transition-all hover:bg-neutral-200/70'
-									onClick={() => setOrderBy('Author asc')}
-								>
-									Author asc
+								<li role="none">
+									<button
+										className='w-full px-2 py-1 text-left transition-all hover:bg-neutral-200/70 focus:outline-none focus:bg-neutral-200/70'
+										onClick={() => setOrderBy('Author asc')}
+										role="menuitem"
+									>
+										Author asc
+									</button>
 								</li>
 							</motion.ul>
 						)}
@@ -80,10 +91,11 @@ export default function Header({
 				<AnimateIcon animateOnHover>
 					<button
 						onClick={handleReset}
-						title='Reset filters'
-						className='bg-light-white flex gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
+						aria-label='Reset all filters'
+						className='bg-light-white flex gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'
 					>
-						<RotateCcwIcon size={20} />
+						<RotateCcwIcon size={20} aria-hidden="true" />
+						<span className="sr-only">Reset filters</span>
 					</button>
 				</AnimateIcon>
 				<AnimateIcon animateOnHover>
@@ -91,12 +103,13 @@ export default function Header({
 						onClick={() => {
 							open('uploadPhoto');
 						}}
-						className='bg-light-white flex items-center gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20'
+						className='bg-light-white flex items-center gap-2 rounded px-2 py-1 shadow shadow-neutral-400 transition-colors hover:bg-neutral-400/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'
+						aria-label="Upload a new photo"
 					>
-						<Upload size={20} /> Upload
+						<Upload size={20} aria-hidden="true" /> Upload
 					</button>
 				</AnimateIcon>
 			</div>
-		</div>
+		</header>
 	);
 }
