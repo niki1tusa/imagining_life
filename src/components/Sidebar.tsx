@@ -33,11 +33,11 @@ export default function Sidebar() {
 				stiffness: 80,
 				damping: 15,
 			}}
-			className='bg-light-white flex h-[100dvh] flex-col items-center gap-10 pr-10 2xl:text-xl'
+			className='bg-light-white flex h-[100dvh] items-center justify-around gap-10 pr-10 md:flex-col md:justify-start 2xl:text-xl'
 		>
 			<Title className='text-primary pt-5'>Imagining Life</Title>
-			<div className='border-gray h-1 w-[45%] border-b' />
-			<ul className='flex flex-col gap-4'>
+			<div className='border-gray hidden h-1 w-[45%] border-b md:block' />
+			<ul className='flex gap-4 md:flex-col'>
 				{NAVBAR_DATA.map(navItem => (
 					<Link
 						key={navItem.id}
@@ -64,20 +64,20 @@ export default function Sidebar() {
 					</Link>
 				))}
 			</ul>
-			<div className='border-gray h-1 w-[45%] border-b' />
-			<button type='button' className='flex items-center gap-1'>
+			<div className='border-gray hidden h-1 w-[45%] border-b md:block' />
+			<button type='button' className='hidden items-center gap-1 md:flex'>
 				<LogOut size={22} /> <span className='mb-1'>Logout</span>
 			</button>
-			<div className='border-gray h-1 w-[45%] border-b' />
+			<div className='border-gray hidden h-1 w-[45%] border-b md:block' />
 			<button
-				className={clsx('flex items-center gap-1', theme === 'light' && 'underline')}
+				className={clsx('hidden items-center gap-1 md:flex', theme === 'light' && 'underline')}
 				type='button'
 				onClick={() => setTheme('light')}
 			>
 				<Sun /> Light
 			</button>
 			<button
-				className={clsx('flex items-center gap-1', theme === 'dark' && 'underline')}
+				className={clsx('hidden items-center gap-1 md:flex', theme === 'dark' && 'underline')}
 				type='button'
 				onClick={() => setTheme('dark')}
 			>

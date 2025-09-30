@@ -48,13 +48,13 @@ export default function RightAside() {
 				stiffness: 80,
 				damping: 15,
 			}}
-			className='flex flex-col gap-6 px-5 pt-5'
+			className='hidden w-full flex-col gap-4 px-5 pt-5 sm:px-5 md:sticky md:top-4 md:flex md:gap-6 md:pt-5'
 		>
 			<div>
 				<Title heading='lg' className='text-primary mb-3 text-lg font-bold'>
 					Photo of the day
 				</Title>
-			{random &&	<PhotoCard photo={random} />}
+				{random && <PhotoCard photo={random} />}
 			</div>
 			<div>
 				<Title heading='lg' className='text-primary mb-3 text-lg font-bold'>

@@ -48,7 +48,7 @@ export default function HomePageClient({ photos }: Props) {
 					stiffness: 80,
 					damping: 15,
 				}}
-				className='flex flex-col items-center gap-4 overflow-y-auto rounded px-3 py-2 2xl:h-[1200px]'
+				className='flex flex-col items-center gap-4 overflow-y-auto rounded px-3 py-2 md:h-[800px] 2xl:h-[1200px]'
 			>
 				{dataPhoto.map(photo => (
 					<PhotoCard key={photo.id} photo={photo} />
