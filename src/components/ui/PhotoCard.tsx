@@ -17,7 +17,12 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 	const authorName = photo.user.username || photo.user.name || 'Unknown author';
 
 	return (
-		<article className='bg-light-white flex w-full max-w-lg flex-col gap-2 rounded-xl border border-gray-200 px-6 py-3 shadow-sm transition-all hover:opacity-95 hover:shadow-lg md:w-[320px] lg:w-[360px] 2xl:w-[420px]'>
+		<article
+			className={clsx(
+				'bg-light-white flex max-w-lg flex-col gap-2 rounded-xl border border-gray-200 px-6 py-3 shadow-sm transition-all hover:opacity-95 hover:shadow-lg',
+				'w-full md:w-[320px] lg:w-[360px] 2xl:w-[420px] '
+			)}
+		>
 			<header className='flex items-center justify-between gap-2 pb-2 text-sm font-medium text-gray-700'>
 				<div className='flex items-center gap-2'>
 					<Image
@@ -41,7 +46,7 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 				width={600}
 				height={400}
 				src={photo.urls.regular}
-				className='h-64 w-full rounded-lg object-cover shadow-md'
+				className='aspect-[3/2] 2xl:h-64 w-full rounded-lg object-cover shadow-md'
 			/>
 			{photo.description && (
 				<p

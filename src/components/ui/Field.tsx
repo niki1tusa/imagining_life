@@ -6,9 +6,10 @@ import { SearchIcon } from '../animate-ui/icons/search';
 interface Props {
 	query: string;
 	setQuery: (e: string) => void;
-	type?: 'text' | 'mail' | 'file';
+	type?: 'text' | 'mail';
 	placeholder?: string;
 	isSearch?: boolean;
+	
 }
 export default function Field({
 	query,
@@ -16,10 +17,12 @@ export default function Field({
 	type = 'text',
 	placeholder,
 	isSearch = false,
+	
 }: Props) {
 	return (
 		<span className='relative max-w-[400px] 2xl:max-w-[600px]'>
 			<input
+				
 				value={query}
 				onChange={e => setQuery(e.target.value)}
 				type={type}
@@ -36,7 +39,7 @@ export default function Field({
 				<motion.div
 					initial={{ x: 0 }}
 					whileHover={{ x: 5 }}
-					transition={{ type: "spring", stiffness: 300 }}
+					transition={{ type: 'spring', stiffness: 300 }}
 					className='absolute top-[50%] right-2 -translate-y-[50%] transform'
 				>
 					<CircleChevronRight size={22} />
