@@ -32,7 +32,7 @@ export default function Sidebar() {
 				stiffness: 80,
 				damping: 15,
 			}}
-			className='bg-light-white sticky flex md:sticky top-4 items-center justify-around gap-10 py-3 pr-10 md:h-[100dvh] md:flex-col md:justify-start md:py-0 2xl:text-xl'
+			className='bg-light-white flex items-center justify-around gap-10 py-3 pr-10 md:sticky md:top-4 md:max-h-screen overflow-hidden md:flex-col md:justify-start md:py-0 2xl:text-xl'
 		>
 			<Title className='text-primary'>Imagining Life</Title>
 			<div className='border-gray hidden h-1 w-[45%] border-b md:block' />

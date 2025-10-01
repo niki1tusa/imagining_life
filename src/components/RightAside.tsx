@@ -65,7 +65,13 @@ export default function RightAside() {
 			<div className='mb-1 hidden flex-col md:flex'>
 				<span>Hey friend &#128075; Want the freshest updates from our community?</span>
 				<span className='mb-2'>Then share your mail</span>
-				<Field query={query} setQuery={setQuery} type='mail' placeholder='Enter mail...' />
+				<Field
+					isMailField={true}
+					query={query}
+					setQuery={setQuery}
+					type='mail'
+					placeholder='Enter mail...'
+				/>
 			</div>
 		</motion.aside>
 	);

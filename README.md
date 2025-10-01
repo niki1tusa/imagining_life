@@ -1,5 +1,9 @@
 # imagining-life
 
+[![Deployed on Vercel](https://img.shields.io/badge/deployed%20on-Vercel-000000?style=flat&logo=vercel)](https://imagining-life.vercel.app/)
+
+---
+
 [![Next.js](https://img.shields.io/badge/Next.js-14%2B-black?logo=nextdotjs)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5%2B-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3%2B-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)

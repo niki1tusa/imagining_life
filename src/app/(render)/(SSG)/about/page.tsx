@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 export default function Page() {
 	return (
 		<div className='px-5 pt-5'>
-			<Title heading='2xl' className='text-primary'>
+			<Title heading='2xl' className='text-primary mb-5'>
 				About us
 			</Title>
 			<div className='grid grid-cols-1 items-center xl:grid-cols-2'>
