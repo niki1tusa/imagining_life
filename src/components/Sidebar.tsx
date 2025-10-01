@@ -35,7 +35,7 @@ export default function Sidebar() {
 			className={clsx(
 				' flex items-center gap-10 overflow-hidden pr-10 2xl:text-xl',
 				'fixed inset-x-0 top-0 z-50 justify-around py-3 border-b border-gray bg-light-white/80 backdrop-blur', // mobile
-				'md:sticky md:top-5 md:max-h-screen md:flex-col md:justify-start md:py-0 md:bg-light-white md:border-none  md:backdrop-blur-0' // desktop
+				'md:sticky md:top-5 md:max-h-screen md:flex-col md:justify-start md:py-0 md:bg-light-white md:border-none  md:backdrop-blur-0 md:z-0' // desktop
 			)}
 		>
 			<Title className='text-primary'>Imagining Life</Title>
