@@ -25,8 +25,8 @@ export default function FieldFile({ onChange, error }: Props) {
 					size={22}
 					className='pointer-events-none absolute top-[50%] right-2 -translate-y-[50%] transform'
 				/>
-				{error && <span className='text-sm text-red-500'>{error}</span>}
 			</span>
+			{error && <span className='text-sm text-red-500'>{error}</span>}
 		</>
 	);
 }

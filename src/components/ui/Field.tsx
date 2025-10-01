@@ -23,7 +23,7 @@ export default function Field({
 }: Props) {
 	return (
 		<>
-			{(!isSearch && !isMailField) && <label htmlFor='text'>Add to description:</label>}
+			{!isSearch && !isMailField && <label htmlFor='text'>Add to description:</label>}
 			<span className='relative flex max-w-[400px] flex-col gap-1 2xl:max-w-[600px]'>
 				<input
 					id='text'
@@ -49,8 +49,8 @@ export default function Field({
 						<CircleChevronRight size={22} />
 					</motion.div>
 				)}
-				{error && <span className='text-sm text-red-500'>{error}</span>}
 			</span>
+			{error && <span className='text-sm text-red-500'>{error}</span>}
 		</>
 	);
 }

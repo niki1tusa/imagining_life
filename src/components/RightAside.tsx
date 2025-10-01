@@ -48,7 +48,7 @@ export default function RightAside() {
 				stiffness: 80,
 				damping: 15,
 			}}
-			className='hidden max-h-screen w-full flex-col gap-2 overflow-hidden px-5 sm:px-5 md:sticky md:top-4 md:flex md:gap-6 2xl:gap-4'
+			className='hidden max-h-screen w-full flex-col gap-2 overflow-hidden px-5 sm:px-5 md:sticky md:top-5 md:flex md:gap-6 2xl:gap-4'
 		>
 			<div>
 				<Title heading='lg' className='text-primary mb-3 text-lg font-bold'>

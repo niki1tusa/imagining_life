@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
 import HomePageClient from '@/components/pages/HomePageClient';
+import FallbackPhoto from '@/components/ui/FallbackPhoto';
 
 import { SITE_NAME } from '@/constants/seo.constants';
 
@@ -47,8 +48,6 @@ export default async function Page() {
 	return photos.length ? (
 		<HomePageClient photos={photos} />
 	) : (
-		<div className='text-foreground flex h-full items-center justify-center border border-dashed p-2'>
-			Сouldn't upload photo!
-		</div>
+		<FallbackPhoto text="Сouldn't upload photos!" />
 	);
 }
