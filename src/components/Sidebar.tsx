@@ -33,9 +33,9 @@ export default function Sidebar() {
 				stiffness: 80,
 				damping: 15,
 			}}
-			className='bg-light-white flex h-[100dvh] items-center justify-around gap-10 pr-10 md:flex-col md:justify-start 2xl:text-xl'
+			className='bg-light-white sticky flex items-center justify-around gap-10 py-3 pr-10 md:h-[100dvh] md:flex-col md:justify-start md:py-0 2xl:text-xl'
 		>
-			<Title className='text-primary pt-5'>Imagining Life</Title>
+			<Title className='text-primary md:pt-5'>Imagining Life</Title>
 			<div className='border-gray hidden h-1 w-[45%] border-b md:block' />
 			<ul className='flex gap-4 md:flex-col'>
 				{NAVBAR_DATA.map(navItem => (

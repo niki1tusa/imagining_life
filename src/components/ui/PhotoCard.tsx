@@ -20,7 +20,7 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 		<article
 			className={clsx(
 				'bg-light-white flex max-w-lg flex-col gap-2 rounded-xl border border-gray-200 px-6 py-3 shadow-sm transition-all hover:opacity-95 hover:shadow-lg',
-				'w-full md:w-[320px] lg:w-[360px] 2xl:w-[420px] '
+				'w-full md:w-[320px] lg:w-[360px] 2xl:w-[420px]'
 			)}
 		>
 			<header className='flex items-center justify-between gap-2 pb-2 text-sm font-medium text-gray-700'>
@@ -28,6 +28,7 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 					<Image
 						width={32}
 						height={32}
+						sizes='32px'
 						alt={`Profile picture of ${authorName}`}
 						src={photo.user.profile_image?.small || '/user.png'}
 						className='h-8 w-8 rounded-full border border-gray-200 object-cover shadow-sm'
@@ -41,13 +42,16 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 					{format(photo.created_at, 'LLL dd, yyyy')}
 				</time>
 			</header>
-			<Image
-				alt={photo.description || `Photo by ${authorName}`}
-				width={600}
-				height={400}
-				src={photo.urls.regular}
-				className='aspect-[3/2] 2xl:h-64 w-full rounded-lg object-cover shadow-md'
-			/>
+			<div className='relative aspect-[3/2] w-full'>
+				<Image
+					alt={photo.description || `Photo by ${authorName}`}
+					src={photo.urls.small}
+					fill
+					sizes='(max-width: 768px) 100vw, 400px'
+					className='rounded-lg object-cover shadow-md'
+				/>
+			</div>
+
 			{photo.description && (
 				<p
 					className='mt-2 text-sm text-gray-600'

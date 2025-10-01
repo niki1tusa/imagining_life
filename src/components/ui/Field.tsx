@@ -9,7 +9,7 @@ interface Props {
 	type?: 'text' | 'mail';
 	placeholder?: string;
 	isSearch?: boolean;
-	
+	error?: string;
 }
 export default function Field({
 	query,
@@ -17,12 +17,11 @@ export default function Field({
 	type = 'text',
 	placeholder,
 	isSearch = false,
-	
+	error,
 }: Props) {
 	return (
-		<span className='relative max-w-[400px] 2xl:max-w-[600px]'>
+		<span className='relative flex max-w-[400px] flex-col gap-1 2xl:max-w-[600px]'>
 			<input
-				
 				value={query}
 				onChange={e => setQuery(e.target.value)}
 				type={type}
@@ -45,6 +44,7 @@ export default function Field({
 					<CircleChevronRight size={22} />
 				</motion.div>
 			)}
+			{error && <span className='text-sm text-red-500'>{error}</span>}
 		</span>
 	);
 }
