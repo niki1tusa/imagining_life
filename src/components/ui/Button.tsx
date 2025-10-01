@@ -9,7 +9,7 @@ export default function Button({ children, onClick, type = 'button', disabled = 
 		<button
 			type={type}
 			onClick={onClick}
-			className='bg-primary hover:bg-primary/50 w-full rounded py-1 text-white transition-all'
+			className='bg-primary hover:bg-primary/50 w-full rounded py-1 text-white transition-all max-w-[400px] 2xl:max-w-[600px]'
 			disabled={disabled}
 		>
 			{children}

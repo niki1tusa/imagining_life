@@ -48,7 +48,7 @@ export default function RightAside() {
 				stiffness: 80,
 				damping: 15,
 			}}
-			className='hidden max-h-screen w-full flex-col gap-2 overflow-hidden px-5 pt-5 sm:px-5 md:sticky md:top-4 md:flex md:gap-6 md:pt-5 2xl:gap-4'
+			className='hidden max-h-screen w-full flex-col gap-2 overflow-hidden px-5 sm:px-5 md:sticky md:top-4 md:flex md:gap-6 2xl:gap-4'
 		>
 			<div>
 				<Title heading='lg' className='text-primary mb-3 text-lg font-bold'>
@@ -62,7 +62,7 @@ export default function RightAside() {
 				</Title>
 				{largestTotalLikedPhoto && <PhotoCard photo={largestTotalLikedPhoto} />}
 			</div>
-			<div className='hidden flex-col md:flex mb-1'>
+			<div className='mb-1 hidden flex-col md:flex'>
 				<span>Hey friend &#128075; Want the freshest updates from our community?</span>
 				<span className='mb-2'>Then share your mail</span>
 				<Field query={query} setQuery={setQuery} type='mail' placeholder='Enter mail...' />

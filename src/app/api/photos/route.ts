@@ -24,10 +24,9 @@ export async function GET() {
 		return NextResponse.json([], { status: 500 });
 	}
 }
-
+// unsplash is no possibility post query, because mock :(
 export async function POST(req: Request) {
 	const formData = await req.formData();
-	const file = formData.get('image') as File;
 	const description = formData.get('description') as string;
 
 
