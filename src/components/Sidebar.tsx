@@ -32,7 +32,11 @@ export default function Sidebar() {
 				stiffness: 80,
 				damping: 15,
 			}}
-			className='bg-light-white flex items-center justify-around gap-10 py-3 pr-10 sticky top-5 md:max-h-screen overflow-hidden md:flex-col md:justify-start md:py-0 2xl:text-xl'
+			className={clsx(
+				' flex items-center gap-10 overflow-hidden pr-10 2xl:text-xl',
+				'fixed inset-x-0 top-0 z-50 justify-around py-3 border-b border-gray bg-light-white/80 backdrop-blur', // mobile
+				'md:sticky md:top-5 md:max-h-screen md:flex-col md:justify-start md:py-0 md:bg-light-white md:border-none  md:backdrop-blur-0' // desktop
+			)}
 		>
 			<Title className='text-primary'>Imagining Life</Title>
 			<div className='border-gray hidden h-1 w-[45%] border-b md:block' />
