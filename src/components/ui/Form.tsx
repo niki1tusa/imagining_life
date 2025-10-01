@@ -11,7 +11,6 @@ import Button from '../ui/Button';
 
 import Field from './Field';
 import FieldFile from './FieldFile';
-import { createLocalTPhoto } from '@/lib/photo-helper';
 import { TUploadScheme, ZUploadFormScheme } from '@/types/zod.types';
 
 export default function Form({ close }: { close?: () => void }) {
@@ -26,10 +25,29 @@ export default function Form({ close }: { close?: () => void }) {
 	const onSubmit = async (values: TUploadScheme) => {
 		setIsSubmitting(true);
 		try {
-			const file = values.image as File;
-			const photo = await createLocalTPhoto(file, values.description);
+			const formData = new FormData();
+			formData.append('image', values.image as File);
+			formData.append('description', values.description || '');
 
-			addUpload(photo);
+			// POST к локальному mock endpoint!
+			const res = await fetch('/api/photos', {
+				method: 'POST',
+				body: formData,
+			});
+			const photo = await res.json();
+			const previewUrl = values.image ? URL.createObjectURL(values.image) : '';
+
+			addUpload({
+				...photo,
+				urls: {
+					raw: previewUrl,
+					full: previewUrl,
+					regular: previewUrl,
+					small: previewUrl,
+					thumb: previewUrl,
+				},
+				links: { ...photo.links, download: previewUrl, download_location: previewUrl },
+			});
 			reset();
 			close?.();
 		} finally {
