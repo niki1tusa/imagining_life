@@ -30,6 +30,22 @@ export const metadata: Metadata = {
 	},
 	description:
 		'A photo sharing platform where users can discover, upload, and interact with beautiful images from around the world.',
+			openGraph: {
+		title: `${SITE_NAME}`,
+		description: `Просматривай и выкладывай фото на  ${SITE_NAME} `,
+		url: '/',
+		siteName: SITE_NAME,
+		images: [
+			{
+				url: '/home.png',
+				width: 1200,
+				height: 630,
+				alt: 'Home',
+			},
+		],
+		locale: 'en_US',
+		type: 'website',
+	},
 };
 
 export default function RootLayout({

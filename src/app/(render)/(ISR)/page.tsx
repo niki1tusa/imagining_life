@@ -31,24 +31,24 @@ export const metadata: Metadata = {
 	},
 };
 async function getPhotos(): Promise<TPhoto[]> {
-  const res = await fetch('https://api.unsplash.com/photos?per_page=30', {
-    headers: {
-      Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
-      'Accept-Version': 'v1',
-    },
-    next: { tags: ['photos'], revalidate: 300 }, // ISR 
-  });
-  if (!res.ok) return [];
-  return res.json();
+	const res = await fetch('https://api.unsplash.com/photos?per_page=30', {
+		headers: {
+			Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
+			'Accept-Version': 'v1',
+		},
+		next: { tags: ['photos'], revalidate: 300 }, // ISR
+	});
+	if (!res.ok) return [];
+	return res.json();
 }
 
 export default async function Page() {
-  const photos = await getPhotos();
-  return photos.length ? (
-    <HomePageClient photos={photos} />
-  ) : (
-    <div className="flex h-full items-center justify-center text-red-500">
-      Сouldn't upload photo!
-    </div>
-  );
+	const photos = await getPhotos();
+	return photos.length ? (
+		<HomePageClient photos={photos} />
+	) : (
+		<div className='text-foreground flex h-full items-center justify-center border border-dashed p-2'>
+			Сouldn't upload photo!
+		</div>
+	);
 }
