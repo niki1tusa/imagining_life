@@ -31,7 +31,7 @@ export default function PhotoCard({ photo }: { photo: TPhoto }) {
 						sizes='32px'
 						alt={`Profile picture of ${authorName}`}
 						src={photo.user.profile_image?.small || '/user.png'}
-						className='h-8 w-8 rounded-full border border-gray-200 object-cover shadow-sm'
+						className='h-8 w-8 rounded-full border border-gray-200 object-contain shadow-sm'
 					/>
 					{photo?.user?.name && <span>{authorName}</span>}
 				</div>
